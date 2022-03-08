@@ -1,24 +1,28 @@
 import {
     BrowserRouter,
-    Routes, /*antigo Switch*/
+    Routes as Rotas, /*antigo Switch*/
     Route
 } from 'react-router-dom';
 
 import { Home } from './pages/Home';
+import { Repositories } from './pages/Repositories';
 
 
-export const Routers = () => {
+export const Routes = () => {
     return (
         <BrowserRouter>
-            <Routes>
+            <Rotas>
                 {/* Forma Antiga */}
                 {/* <Route path="/" exact component={ Home } /> */}
 
                 {/* Atual (Não precisa mais do exact e usa-se o element agora)*/}
                 <Route path='/' element={<Home />} />
+
+                <Route path='/repositories' element={<Repositories />} />
+
                 {/* rota para quando der erro e não achar nenhuma das rotas declaradas */}
                 <Route path='*' element="" />
-            </Routes>
+            </Rotas>
         </BrowserRouter>
     );
 }
