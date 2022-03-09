@@ -17,8 +17,8 @@ export const GlobalStyle = createGlobalStyle`
         --lighter-background: rgba(255, 255, 255, .95);
 
         --main-titles: #E5E5E5;
-        --text-dark: #444;
-
+        --text-dark-500: #444;
+        --text-dark-400: #777;
     }
 
     html {
