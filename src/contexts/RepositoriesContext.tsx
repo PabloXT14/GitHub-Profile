@@ -1,11 +1,25 @@
 import { createContext, ReactNode, useState } from "react";
 
 /* ===== TIPAGENS ===== */
-interface Repositories {
-    userData: object;
-    userRepositories: Array<object>;
-    setUserData: object;
-    setUserRepositories: Array<object>;
+interface RepositoriesContextData {
+    userData: UserData;
+    setUserData: (userData: UserData) => void;
+    userRepositories: Respositories[];
+    setUserRepositories: (respositories: Respositories[]) => void;
+}
+
+interface UserData {
+    avatar_url: string;
+    name: string;
+    login: string;
+    bio: string;
+    public_repos: number;
+    followers: number;
+    following: number;
+}
+
+interface Respositories {
+    repositorie: object;
 }
 
 interface RepositoriesProviderProps {
@@ -13,19 +27,19 @@ interface RepositoriesProviderProps {
 }
 
 /* ===== CONTEXT ===== */
-export const RepositoriesContext = createContext({});
+export const RepositoriesContext = createContext<RepositoriesContextData>({} as RepositoriesContextData);
 
 
 /* ===== PROVIDER ===== */
 export function RepositoriesProvider({ children }: RepositoriesProviderProps) {
-    const [userData, setUserData] = useState({});
-    const [userRepositories, setUserRepositories] = useState([]);
+    const [userData, setUserData] = useState<UserData>({} as UserData);
+    const [userRepositories, setUserRepositories] = useState<Respositories[]>([]);
 
     return (
         <RepositoriesContext.Provider value={{
             userData,
-            userRepositories,
             setUserData,
+            userRepositories,
             setUserRepositories
         }}>
             {children}

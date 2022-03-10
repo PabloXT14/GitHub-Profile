@@ -3,6 +3,7 @@ import { Header } from "../../components/Header";
 import { MainContainer } from "../../components/MainContainer";
 import { UserContainer } from "../../components/UserContainer";
 import { UserDetails } from "../../components/UserDetails";
+import { UserNumbers } from "../../components/UserNumbers";
 import { UserPicture } from "../../components/UserPicture";
 import { RepositoriesContext } from "../../contexts/RepositoriesContext";
 import { useQuery } from "../../hooks/useQuery";
@@ -19,12 +20,22 @@ export function Home() {
 
     return (
         <MainContainer>
-            <Header username={query.get('username')} />
+            <Header />
             <UserContainer>
                 <UserPicture
-                    imageUrl="https://avatars.githubusercontent.com/u/71723595?v=4" alternativeText="Perfil do Usuário"
+                    imageUrl={reposContext.userData?.avatar_url}
+                    alternativeText={reposContext.userData?.login}
                 />
-                <UserDetails name="Pablo Alan" username="#PabloXT14" bio="Um texto qualquer" />
+                <UserDetails
+                    name={reposContext.userData?.name}
+                    login={reposContext.userData?.login}
+                    bio={reposContext.userData?.bio}
+                />
+                <UserNumbers
+                    public_repos={reposContext.userData?.public_repos}
+                    followers={reposContext.userData?.followers}
+                    following={reposContext.userData?.following}
+                />
             </UserContainer>
         </MainContainer>
     );

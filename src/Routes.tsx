@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 
 import { Home } from './pages/Home/home';
-import { Repositories } from './pages/Repositories';
+import { Repositories } from './pages/Repositories/repositories';
 
 
 export const Routes = () => {

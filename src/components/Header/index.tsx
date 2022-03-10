@@ -11,37 +11,47 @@ import {
 } from "./style";
 
 /* ===== TIPAGENS ===== */
-interface HeaderProps {
-    username: string | null;
+interface UserData {
+    avatar_url: string;
+    name: string;
+    login: string;
+    bio: string;
+    public_repos: number;
+    followers: number;
+    following: number;
 }
 
 
-export function Header({ username }: HeaderProps) {
+export function Header() {
     const reposContext = useContext(RepositoriesContext);
     const [searchValue, setSearchValue] = useState('');
 
-    useEffect(() => {
-        (async function getUserData() {
-            try {
-                const userData = await api.get(`/${username}`);
-                const respositories = await api.get(`/${username}/repos`);
 
+    // Bucando dados do usuário digitado na API do Github (de forma assincrona)
+    async function getUserData() {
+        try {
+            const userData = await api.get<UserData>(`/${searchValue}`);
+            const respositories = await api.get(`/${searchValue}/repos`);
 
+            reposContext.setUserData(userData.data);
 
-            } catch (error) {
-                console.log(error);
-            }
-        })()
-    }, [username]);
-
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
 
     return (
         <HeaderSection>
             <HeaderTitle>Github Profile</HeaderTitle>
             <HeaderInputContainer>
-                <HeaderInput />
-                <HeaderSearchButton>
+                <HeaderInput
+                    value={searchValue}
+                    onChange={(e) => setSearchValue(e.target.value)}
+                />
+                <HeaderSearchButton
+                    onClick={getUserData}
+                >
                     <FiSearch />
                 </HeaderSearchButton>
             </HeaderInputContainer>
