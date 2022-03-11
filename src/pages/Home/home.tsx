@@ -15,27 +15,29 @@ interface HeaderProps {
 
 export function Home() {
     const reposContext = useContext(RepositoriesContext);
-    const query = useQuery();
-
 
     return (
         <MainContainer>
             <Header />
             <UserContainer>
-                <UserPicture
-                    imageUrl={reposContext.userData?.avatar_url}
-                    alternativeText={reposContext.userData?.login}
-                />
-                <UserDetails
-                    name={reposContext.userData?.name}
-                    login={reposContext.userData?.login}
-                    bio={reposContext.userData?.bio}
-                />
-                <UserNumbers
-                    public_repos={reposContext.userData?.public_repos}
-                    followers={reposContext.userData?.followers}
-                    following={reposContext.userData?.following}
-                />
+                {reposContext.userData?.name ?
+                    <>
+                        <UserPicture
+                            imageUrl={reposContext.userData?.avatar_url}
+                            alternativeText={reposContext.userData?.login}
+                        />
+                        <UserDetails
+                            name={reposContext.userData?.name}
+                            login={reposContext.userData?.login}
+                            bio={reposContext.userData?.bio}
+                        />
+                        <UserNumbers
+                            public_repos={reposContext.userData?.public_repos}
+                            followers={reposContext.userData?.followers}
+                            following={reposContext.userData?.following}
+                        />
+                    </>
+                    : undefined}
             </UserContainer>
         </MainContainer>
     );

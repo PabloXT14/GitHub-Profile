@@ -21,6 +21,16 @@ interface UserData {
     following: number;
 }
 
+interface UserRepositories {
+    id: number;
+    name: string;
+    description: string;
+    html_url: string;
+    language: string;
+    stargazers_count: number;
+    forks: number;
+}
+
 
 export function Header() {
     const reposContext = useContext(RepositoriesContext);
@@ -31,9 +41,10 @@ export function Header() {
     async function getUserData() {
         try {
             const userData = await api.get<UserData>(`/${searchValue}`);
-            const respositories = await api.get(`/${searchValue}/repos`);
+            const userRespositories = await api.get<UserRepositories[]>(`/${searchValue}/repos`);
 
             reposContext.setUserData(userData.data);
+            reposContext.setUserRepositories(userRespositories.data);
 
         } catch (error) {
             console.log(error);

@@ -16,8 +16,8 @@ interface UserDetailsProps {
 export function UserDetails({ name, login, bio }: UserDetailsProps) {
     return (
         <Container>
-            <Name>{name}</Name>
-            <Username>{login}</Username>
+            <Name>{name ? name : 'Unknown'}</Name>
+            <Username>{login ? '#' + login : 'Unknown'}</Username>
             <Description>{bio ? bio : 'Without description'}</Description>
         </Container>
     );

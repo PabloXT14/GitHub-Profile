@@ -11,10 +11,12 @@ export const GlobalStyle = createGlobalStyle`
 
     :root {
         --theme-color: #09D030;
+        --theme-color-2: #FFF;
 
         --page-background: linear-gradient(120deg, #252525, #444);
         --header-background: rgba(255, 255, 255, .2);
         --lighter-background: rgba(255, 255, 255, .95);
+        --repositorie-background: rgba(0, 0, 0, .05);
 
         --main-titles: #E5E5E5;
         --text-dark-500: #444;

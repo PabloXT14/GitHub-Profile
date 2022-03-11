@@ -11,7 +11,7 @@ export const Container = styled.main`
     align-items: center;
     justify-content: center;
   
-    @media (max-width: 400px) {
+    @media (max-width: 430px) {
         padding: 0 0.5rem;
     }
 
