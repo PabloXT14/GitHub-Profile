@@ -21,6 +21,8 @@ export const GlobalStyle = createGlobalStyle`
         --main-titles: #E5E5E5;
         --text-dark-500: #444;
         --text-dark-400: #777;
+
+        --language-bg: #252525;
     }
 
     html {

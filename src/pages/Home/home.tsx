@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import { Header } from "../../components/Header";
 import { MainContainer } from "../../components/MainContainer";
+import { MessageNotification } from "../../components/MessageNotification";
 import { UserContainer } from "../../components/UserContainer";
 import { UserDetails } from "../../components/UserDetails";
 import { UserNumbers } from "../../components/UserNumbers";
 import { UserPicture } from "../../components/UserPicture";
 import { RepositoriesContext } from "../../contexts/RepositoriesContext";
-import { useQuery } from "../../hooks/useQuery";
 
 interface HeaderProps {
     username: string;
@@ -37,7 +37,9 @@ export function Home() {
                             following={reposContext.userData?.following}
                         />
                     </>
-                    : undefined}
+                    : <MessageNotification
+                        message="Digite o seu nome de usuário do GitHub para receber as informações do seu perfil"
+                    />}
             </UserContainer>
         </MainContainer>
     );

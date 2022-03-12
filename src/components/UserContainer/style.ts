@@ -4,6 +4,8 @@ export const Section = styled.section`
     width: 25rem;
     min-height: 18.75rem;
 
+    position: relative;
+
     background: var(--lighter-background);
     border-radius: 5px;
     border-bottom: 5px solid var(--theme-color);

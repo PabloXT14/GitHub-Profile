@@ -9,6 +9,7 @@ import { FaFolder } from 'react-icons/fa';
 import { AiOutlineStar, AiOutlineLink } from 'react-icons/ai';
 import { BiGitRepoForked } from 'react-icons/bi';
 import { Link } from "react-router-dom";
+import { BackButton } from "../BackButton";
 
 /* ===== TIPAGENS ===== */
 interface ReposContainerProps {
@@ -58,16 +59,20 @@ export function ReposContainer({ name, repositories }: ReposContainerProps) {
                                         Link
                                     </div>
                                 </div>
-                                <div className="language">
-                                    {repositorie?.language}
-                                </div>
+                                {repositorie.language ?
+                                    <div className="language">
+                                        {repositorie?.language}
+                                    </div>
+                                    : undefined
+                                }
+
                             </RepoDetails>
                         </Repo>
                     ))}
                 </ListOfReposContainer>
             </Section>
 
-            <Link to={"/"}>Back</Link>
+            <BackButton route="/" />
         </>
     );
 }

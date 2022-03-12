@@ -108,9 +108,27 @@ export const RepoDetails = styled.div`
                 color: var(--theme-color);
             }
         }
+
+        .link {
+            background: var(--theme-color);
+            color: var(--theme-color-2);
+            font-weight: 500;
+            border-radius: 2px;
+
+            padding: 0.2rem 0.5rem;
+
+            svg {
+                color: var(--theme-color-2);
+            }
+        }
     }
 
     .language {
+        background: var(--language-bg);
+        color: var(--theme-color-2);
+        font-weight: 500;
+        border-radius: 2px;
 
+        padding: 0.2rem 0.5rem;
     }
 `;
