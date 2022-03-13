@@ -6,6 +6,10 @@ interface RepositoriesContextData {
     setUserData: (userData: UserData) => void;
     userRepositories: Respositories[];
     setUserRepositories: (respositories: Respositories[]) => void;
+    followersData: FollowersData[];
+    setFollowersData: (followersData: FollowersData[]) => void;
+    followingData: FollowingData[];
+    setFollowingData: (followingData: FollowingData[]) => void;
 }
 
 interface UserData {
@@ -28,6 +32,25 @@ interface Respositories {
     forks: number;
 }
 
+interface FollowersData {
+    avatar_url: string;
+    name: string;
+    login: string;
+    bio: string;
+    location: string;
+    company: string;
+}
+
+interface FollowingData {
+    avatar_url: string;
+    name: string;
+    login: string;
+    bio: string;
+    location: string;
+    company: string;
+}
+
+
 interface RepositoriesProviderProps {
     children: ReactNode;
 }
@@ -41,12 +64,19 @@ export function RepositoriesProvider({ children }: RepositoriesProviderProps) {
     const [userData, setUserData] = useState<UserData>({} as UserData);
     const [userRepositories, setUserRepositories] = useState<Respositories[]>([]);
 
+    const [followersData, setFollowersData] = useState<FollowersData[]>([]);
+    const [followingData, setFollowingData] = useState<FollowingData[]>([]);
+
     return (
         <RepositoriesContext.Provider value={{
             userData,
             setUserData,
             userRepositories,
-            setUserRepositories
+            setUserRepositories,
+            followersData,
+            setFollowersData,
+            followingData,
+            setFollowingData
         }}>
             {children}
         </RepositoriesContext.Provider>

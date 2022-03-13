@@ -3,6 +3,7 @@ import {
     Routes as Rotas, /*antigo Switch*/
     Route
 } from 'react-router-dom';
+import { Followers } from './pages/Followers/followers';
 
 import { Home } from './pages/Home/home';
 import { Repositories } from './pages/Repositories/repositories';
@@ -19,6 +20,7 @@ export const Routes = () => {
                 <Route path='/' element={<Home />} />
 
                 <Route path='/repositories' element={<Repositories />} />
+                <Route path='/followers' element={<Followers />} />
 
                 {/* rota para quando der erro e não achar nenhuma das rotas declaradas */}
                 <Route path='*' element="" />
