@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Button } from "./style";
+import { Button } from "./styles";
 import { BsBoxArrowLeft } from 'react-icons/bs';
 
 

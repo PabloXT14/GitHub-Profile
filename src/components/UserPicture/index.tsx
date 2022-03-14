@@ -1,4 +1,4 @@
-import { Conatiner, ProfilePicture } from "./style";
+import { Conatiner, ProfilePicture } from "./styles";
 
 /* ===== TIPAGENS ===== */
 interface UserPictureProps {

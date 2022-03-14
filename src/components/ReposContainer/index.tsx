@@ -4,7 +4,7 @@ import {
     ListOfReposContainer,
     Repo,
     RepoDetails
-} from "./style";
+} from "./styles";
 import { FaFolder } from 'react-icons/fa';
 import { AiOutlineStar, AiOutlineLink } from 'react-icons/ai';
 import { BiGitRepoForked } from 'react-icons/bi';

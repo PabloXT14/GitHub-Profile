@@ -8,7 +8,7 @@ import {
     HeaderSearchButton,
     HeaderSection,
     HeaderTitle
-} from "./style";
+} from "./styles";
 
 /* ===== TIPAGENS ===== */
 interface UserData {
@@ -58,12 +58,12 @@ export function Header() {
             const userData = await api.get<UserData>(`/${searchValue}`);
             const userRespositories = await api.get<UserRepositories[]>(`/${searchValue}/repos`);
 
-            const followersData: FollowersData[] = await getUserContactData(searchValue, 'followers');
+            // const followersData: FollowersData[] = await getUserContactData(searchValue, 'followers');
 
             /* ===== Salvando dados no Context ===== */
             reposContext.setUserData(userData.data);
             reposContext.setUserRepositories(userRespositories.data);
-            reposContext.setFollowersData(followersData);
+            // reposContext.setFollowersData(followersData);
 
             console.log(reposContext.followersData);
 

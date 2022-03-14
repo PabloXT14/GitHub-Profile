@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';// API para direcionar para uma d
 import {
     Container,
     NumberContainer
-} from './style';
+} from './styles';
 
 
 /* ===== TIPAGENS ===== */

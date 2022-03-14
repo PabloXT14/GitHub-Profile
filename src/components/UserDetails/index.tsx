@@ -4,7 +4,7 @@ import {
     Username,
     Description
 
-} from './style';
+} from './styles';
 
 /* ===== TIPAGENS ===== */
 interface UserDetailsProps {
