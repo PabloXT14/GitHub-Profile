@@ -18,16 +18,16 @@ export function UserNumbers({ public_repos, followers, following }: UserNumbersP
     const navigate = useNavigate();
 
     // Função que recebe rota e envia usuario para esta rota através do click
-    const handleOnClick = (route: string) => navigate(route);
+    const handleRouteOnClick = (route: string) => navigate(route);
 
     return (
         <Container>
-            <NumberContainer onClick={() => handleOnClick('/repositories')}>
+            <NumberContainer onClick={() => handleRouteOnClick('/repositories')}>
                 <h2>{public_repos ? public_repos : 0}</h2>
                 <h3>Repositórios</h3>
             </NumberContainer>
 
-            <NumberContainer>
+            <NumberContainer onClick={() => handleRouteOnClick('/followers')}>
                 <h2>{followers ? followers : 0}</h2>
                 <h3>Seguidores</h3>
             </NumberContainer>

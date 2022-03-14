@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import { Header } from "../../components/Header";
 import { MainContainer } from "../../components/MainContainer";
 import { MessageNotification } from "../../components/MessageNotification";
@@ -6,35 +5,31 @@ import { UserContainer } from "../../components/UserContainer";
 import { UserDetails } from "../../components/UserDetails";
 import { UserNumbers } from "../../components/UserNumbers";
 import { UserPicture } from "../../components/UserPicture";
-import { RepositoriesContext } from "../../contexts/RepositoriesContext";
-
-interface HeaderProps {
-    username: string;
-}
+import { useGithub } from "../../contexts/GithubContext";
 
 
 export function Home() {
-    const reposContext = useContext(RepositoriesContext);
+    const githubContext = useGithub();
 
     return (
         <MainContainer>
             <Header />
             <UserContainer>
-                {reposContext.userData?.name ?
+                {githubContext.userData?.name ?
                     <>
                         <UserPicture
-                            imageUrl={reposContext.userData?.avatar_url}
-                            alternativeText={reposContext.userData?.login}
+                            imageUrl={githubContext.userData?.avatar_url}
+                            alternativeText={githubContext.userData?.login}
                         />
                         <UserDetails
-                            name={reposContext.userData?.name}
-                            login={reposContext.userData?.login}
-                            bio={reposContext.userData?.bio}
+                            name={githubContext.userData?.name}
+                            login={githubContext.userData?.login}
+                            bio={githubContext.userData?.bio}
                         />
                         <UserNumbers
-                            public_repos={reposContext.userData?.public_repos}
-                            followers={reposContext.userData?.followers}
-                            following={reposContext.userData?.following}
+                            public_repos={githubContext.userData?.public_repos}
+                            followers={githubContext.userData?.followers}
+                            following={githubContext.userData?.following}
                         />
                     </>
                     : <MessageNotification

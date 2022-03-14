@@ -8,34 +8,21 @@ import {
 import { FaFolder } from 'react-icons/fa';
 import { AiOutlineStar, AiOutlineLink } from 'react-icons/ai';
 import { BiGitRepoForked } from 'react-icons/bi';
-import { Link } from "react-router-dom";
 import { BackButton } from "../BackButton";
-
-/* ===== TIPAGENS ===== */
-interface ReposContainerProps {
-    name: string;
-    repositories: Repositorie[];
-}
-
-interface Repositorie {
-    id: number;
-    name: string;
-    description: string;
-    html_url: string;
-    language: string;
-    stargazers_count: number;
-    forks: number;
-}
+import { useGithub } from "../../contexts/GithubContext";
 
 
-export function ReposContainer({ name, repositories }: ReposContainerProps) {
+export function ReposContainer() {
+    const githubContext = useGithub();
+
+
     return (
         <>
             <Section>
                 {/* Title para aparecer só o primeiro nome */}
-                <Title>Repositórios de {name?.split(' ')[0]}</Title>
+                <Title>Repositórios de {githubContext.userData.name?.split(' ')[0]}</Title>
                 <ListOfReposContainer>
-                    {repositories.map(repositorie => (
+                    {githubContext.userRepositories.map(repositorie => (
                         <Repo key={repositorie?.id}>
                             <h2>
                                 <FaFolder />
