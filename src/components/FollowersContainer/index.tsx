@@ -11,9 +11,13 @@ export function FollowersContainer() {
             <Container>
                 <Title>Seguidores de {githubContext.userData.name?.split(' ')[0]}</Title>
                 <ListOfFollowersContainer>
-                    <FollowerContainer>
-                        Seguidor
-                    </FollowerContainer>
+                    {githubContext?.followersData.map(follower =>
+                        <FollowerContainer>
+                            <img src={follower.avatar_url} alt="" />
+                            <p>{follower.name}</p>
+                            <p>{follower.login}</p>
+                        </FollowerContainer>
+                    )}
                 </ListOfFollowersContainer>
             </Container>
             <BackButton route="/" />
