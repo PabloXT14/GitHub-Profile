@@ -1,6 +1,7 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from "react";
 import { api } from "../services/api";
 import { toast } from 'react-toastify';
+import { useNavigate, Navigate } from "react-router-dom";
 
 
 /* ===== TIPAGENS ===== */
@@ -12,7 +13,9 @@ interface GithubContextData {
     getUserData: (username: string) => Promise<void>;
 
     followersData: FollowersData[];
-    followingData: FollowingData[];
+    followingsData: FollowingsData[];
+
+    getOtherUserDatas: (username: string) => void;
 }
 
 interface UserData {
@@ -35,28 +38,17 @@ interface Respositories {
     forks: number;
 }
 
-interface FollowersLogin {
-    login: string;
-}
-
 interface FollowersData {
-    avatar_url: string;
-    name: string;
     login: string;
-    bio: string;
-    location: string;
-    company: string;
+    avatar_url: string;
+    html_url: string;
 }
 
 
-
-interface FollowingData {
-    avatar_url: string;
-    name: string;
+interface FollowingsData {
     login: string;
-    bio: string;
-    location: string;
-    company: string;
+    avatar_url: string;
+    html_url: string;
 }
 
 
@@ -70,14 +62,14 @@ export const GithubContext = createContext<GithubContextData>({} as GithubContex
 
 /* ===== PROVIDER ===== */
 export function GithubProvider({ children }: GithubProviderProps) {
+
     const [currentUser, setCurrentUser] = useState<string>('');
     const [userData, setUserData] = useState<UserData>({} as UserData);
     const [userRepositories, setUserRepositories] = useState<Respositories[]>([]);
 
     const [followersData, setFollowersData] = useState<FollowersData[]>([]);
-    const [followingData, setFollowingData] = useState<FollowingData[]>([]);
+    const [followingsData, setFollowingsData] = useState<FollowingsData[]>([]);
 
-    const [followersLogin, setFollowersLogin] = useState<FollowersLogin[]>([]);
 
 
     // Bucando dados do usuário digitado na API do Github (de forma assincrona)
@@ -90,29 +82,28 @@ export function GithubProvider({ children }: GithubProviderProps) {
             await api.get<Respositories[]>(`/${username}/repos`).then(response => setUserRepositories(response.data));
 
             //Fetching user follower data
-            await api.get<FollowersLogin[]>(`/${username}/followers`).then(response =>
-                setFollowersLogin(response.data)
+            await api.get<FollowersData[]>(`/${username}/followers`).then(response =>
+                setFollowersData(response.data)
             );
 
+            //Fetching user followings data
+            await api.get<FollowingsData[]>(`/${username}/following`).then(response =>
+                setFollowingsData(response.data)
+            );
 
-            // getDataFromFollowersOrFollowing(followersLogin);
-
+            // Popup
             toast.success('Dado encontrado');
+
         } catch (error) {
             console.log(error);
             toast.error('Dado não encontrado');
         }
     }
 
-
-    // Função Para pegar dados dos Seguindores e Seguindo
-    function getDataFromFollowersOrFollowing(logins: FollowersLogin[]) {
-        logins.map(async (login) => {
-            await api.get<FollowersData>(`/${login.login}`).then(response => setFollowersData([...followersData, response.data]));
-        }
-        );
-
-        console.log(followersData);
+    // Carregar dados de outro usuário
+    function getOtherUserDatas(username: string) {
+        setCurrentUser(username);
+        getUserData(username);
     }
 
 
@@ -124,7 +115,8 @@ export function GithubProvider({ children }: GithubProviderProps) {
             userRepositories,
             getUserData,
             followersData,
-            followingData
+            followingsData,
+            getOtherUserDatas
         }}>
             {children}
         </GithubContext.Provider>

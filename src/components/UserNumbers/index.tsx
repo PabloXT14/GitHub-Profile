@@ -32,7 +32,7 @@ export function UserNumbers({ public_repos, followers, following }: UserNumbersP
                 <h3>Seguidores</h3>
             </NumberContainer>
 
-            <NumberContainer>
+            <NumberContainer onClick={() => handleRouteOnClick('/followings')}>
                 <h2>{following ? following : 0}</h2>
                 <h3>Seguindo</h3>
             </NumberContainer>

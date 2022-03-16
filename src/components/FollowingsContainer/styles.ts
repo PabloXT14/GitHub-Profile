@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.section`
     width: 25rem;
@@ -24,10 +24,10 @@ export const Title = styled.h1`
     line-height: 2rem;
 `;
 
-export const ListOfFollowersContainer = styled.ul`
+export const ListOfFollowingsContainer = styled.ul`
     width: 100%;
     height: 22rem;
-    padding: 1rem;
+    padding: 0.6rem;
     overflow-y: scroll;
 
     &::-webkit-scrollbar {
@@ -41,19 +41,18 @@ export const ListOfFollowersContainer = styled.ul`
 `;
 
 
-export const FollowerContainer = styled.li`
+export const FollowingContainer = styled.li`
     width: 100%;
-    background: #f9f9f9;
-    box-shadow: 0 3px 7px rgba(0, 0, 0, .2);
+    background: var(--repositorie-background);
     border-radius: 3px;
-    padding: 0.7rem;
+    padding: 0.6rem;
 
     display: flex;
     flex-direction: column;
     align-items: center;
 
     & + li {
-        margin-top: 1rem;
+        margin-top: 0.6rem;
     }
 
     img {
@@ -69,32 +68,18 @@ export const FollowerContainer = styled.li`
         width: 100%;
         color: var(--text-dark-500);
         text-align: center;
-        margin-top: 1rem;
     }
 
-    button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        font-size: 1rem;
+    p {
+        font-size: 0.75rem;
         font-weight: 400;
-        color: #f9f9f9;
-        background: #000;
-        border: none;
-        border-radius: 3px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+        color: var(--text-dark-400);
 
         width: 100%;
-        min-height: 2rem;
-        padding: 0.5rem;
-        margin-top: 0.6rem;
-        cursor: pointer;
+        height: 2rem;
 
-        svg {
-            margin-right: 0.5rem;
-            font-size: 1.5rem;
-            color: #FFFFFF;
-        }
+        overflow: hidden;
+        line-height: 1.3;
+        margin-top: 0.6rem;
     }
 `;

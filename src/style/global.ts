@@ -17,12 +17,21 @@ export const GlobalStyle = createGlobalStyle`
         --header-background: rgba(255, 255, 255, .2);
         --lighter-background: rgba(255, 255, 255, .95);
         --repositorie-background: rgba(0, 0, 0, .05);
-
+        
         --main-titles: #E5E5E5;
         --text-dark-500: #444;
         --text-dark-400: #777;
 
         --language-bg: #252525;
+
+        /* colors
+            primary: #09D030
+            secondary: #6e2594
+
+            background-1: #808080
+            background-2: #FFFFFF
+            
+            text: #000000; */
     }
 
     html {
