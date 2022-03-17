@@ -24,7 +24,7 @@ export function FollowersContainer() {
                             }
                             }>
                                 <BsGithub />
-                                Visitar
+                                Visitar Perfil
                             </button>
                         </FollowerContainer>
                     )}

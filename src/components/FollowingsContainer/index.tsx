@@ -16,13 +16,13 @@ export function FollowingsContainer() {
                     {githubContext?.followingsData.map(following =>
                         <FollowingContainer key={following.login}>
                             <img src={following.avatar_url} alt="Perfil do seguindo" />
-                            <h2>{following.login}</h2>
+                            <h2>#{following.login}</h2>
                             <button onClick={() => {
                                 githubContext.getOtherUserDatas(following.login)
                                 navigate('/')
                             }}>
                                 <BsGithub />
-                                Visitar
+                                Visitar Perfil
                             </button>
                         </FollowingContainer>
                     )}

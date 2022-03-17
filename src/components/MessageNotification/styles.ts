@@ -12,10 +12,10 @@ export const Container = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
 
-    border: 2px dashed var(--theme-color);
+    border: 2px dashed var(--color-primary);
     border-radius: 3px;
 
-    color: var(--theme-color);
+    color: var(--color-primary);
     font-weight: 500;
 
 `;

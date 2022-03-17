@@ -18,7 +18,7 @@ export const NumberContainer = styled.div`
     align-items: center;
     justify-content: center;
 
-    background: var(--theme-color);
+    background: var(--color-primary);
     border-radius: 0.25rem;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
     cursor: pointer;
@@ -35,12 +35,12 @@ export const NumberContainer = styled.div`
     }
 
     h3 {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
         text-align: center;
     }
 
     h2, h3 {
-        color: var(--theme-color-2);
+        color: var(--color-light);
     }
     
 `;

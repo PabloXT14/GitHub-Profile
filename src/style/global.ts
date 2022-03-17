@@ -10,28 +10,21 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     :root {
-        --theme-color: #09D030;
-        --theme-color-2: #FFF;
+        --color-primary: #09D030;
+        --color-secondy: #6e2594;
+        --color-light: #FFF;
+        --color-dark: #000;
 
-        --page-background: linear-gradient(120deg, #252525, #444);
-        --header-background: rgba(255, 255, 255, .2);
-        --lighter-background: rgba(255, 255, 255, .95);
-        --repositorie-background: rgba(0, 0, 0, .05);
+        --background-page: linear-gradient(120deg, #252525, #444);
+        --background-header: #808080;
+        --background-section: rgba(255, 255, 255, .95);
+        --background-repos: rgba(0, 0, 0, .05);
+        --background-language: #252525;
         
-        --main-titles: #E5E5E5;
-        --text-dark-500: #444;
-        --text-dark-400: #777;
-
-        --language-bg: #252525;
-
-        /* colors
-            primary: #09D030
-            secondary: #6e2594
-
-            background-1: #808080
-            background-2: #FFFFFF
-            
-            text: #000000; */
+        --color-title: #E5E5E5;
+        --color-text: #111;
+        --color-dark-500: #444;
+        --color-dark-400: #777;
     }
 
     html {

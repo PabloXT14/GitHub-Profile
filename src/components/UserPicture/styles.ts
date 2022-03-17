@@ -12,7 +12,7 @@ export const ProfilePicture = styled.img`
     width: 8rem;
     height: 8rem;
     border-radius: 50%;
-    border: 0.4rem solid var(--theme-color);
+    border: 0.4rem solid var(--color-primary);
     padding: 0.2rem;
 `;
 

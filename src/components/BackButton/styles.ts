@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Button = styled.button`
-    background: var(--theme-color);
+    background: var(--color-primary);
     width: 3rem;
     height: 3rem;
     margin: 1rem auto;
@@ -21,7 +21,7 @@ export const Button = styled.button`
     }
 
     svg {
-        color: var(--theme-color-2);
+        color: var(--color-light);
         font-size: 1.5rem;
     }
 `;

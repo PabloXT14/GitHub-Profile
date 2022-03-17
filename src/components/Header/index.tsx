@@ -24,6 +24,7 @@ export function Header() {
                 <HeaderInput
                     value={currentUser}
                     onChange={(e) => setCurrentUser(e.target.value)}
+                    placeholder="Nome de usuário"
                 />
                 <HeaderSearchButton
                     onClick={() => getUserData(currentUser)}

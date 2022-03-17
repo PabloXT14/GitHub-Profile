@@ -6,9 +6,9 @@ export const Section = styled.section`
 
     position: relative;
 
-    background: var(--lighter-background);
+    background: var(--background-section);
     border-radius: 5px;
-    border-bottom: 5px solid var(--theme-color);
+    border-bottom: 5px solid var(--color-primary);
     margin-top: 1rem;
 
     @media (max-width: 400px) {
