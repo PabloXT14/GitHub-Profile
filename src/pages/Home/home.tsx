@@ -33,7 +33,7 @@ export function Home() {
                         />
                     </>
                     : <MessageNotification
-                        message="Digite o seu nome de usuário do GitHub para receber as informações do seu perfil"
+                        message="Digite o seu nome de usuário do GitHub para receber as informações do seu perfil (ex: pabloxt14)"
                     />}
             </UserContainer>
         </MainContainer>
